@@ -22,12 +22,12 @@ function App() {
       {/* Hero Section */}
       <div className="relative h-screen flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0 w-full h-full">
-  <img
-    src="/summer.jpg"
-    alt="Summer Camp"
-    className="w-full h-full object-cover object-center"
-  />
-</div>
+          <img
+            src="/summer.jpg"
+            alt="Summer Camp"
+            className="w-full h-full object-cover object-center"
+          />
+      </div>
 
         <div className="relative z-10 text-center px-4">
           <h1 className="text-5xl md:text-7xl font-bold text-white mb-6  animate-fade-in">
@@ -40,9 +40,13 @@ function App() {
             Where Science Meets Technology!
           </p>
           <div className="flex gap-4 justify-center animate-bounce-in">
-            <button className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg transform transition-all hover:scale-105">
-              Explore Programs
-            </button>
+          <button
+            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg transform transition-all hover:scale-105"
+            onClick={() => document.getElementById('courses')?.scrollIntoView({ behavior: 'smooth' })}
+          >
+            Explore Programs
+          </button>
+
             <button className="bg-purple-500 hover:bg-purple-600 text-white font-semibold py-3 px-6 rounded-lg transform transition-all hover:scale-105">
               Register Now
             </button>
@@ -286,9 +290,13 @@ function App() {
         <div className="max-w-3xl mx-auto bg-white/10 backdrop-blur-lg rounded-2xl p-8 animate-on-scroll">
           <h2 className="text-3xl font-bold text-white mb-4">Ready to Join the Adventure?</h2>
           <p className="text-purple-100 mb-8">Secure your spot in our summer camp program today!</p>
-          <button className="bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white font-semibold py-4 px-8 rounded-lg transform transition-all hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-50 text-lg">
+          <button
+            className="bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white font-semibold py-4 px-8 rounded-lg transform transition-all hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-50 text-lg"
+            onClick={() => window.location.href = "https://study.mczealconsultancy.com/s/pages/summercamp-nungambakkam"}
+          >
             Enroll Now
           </button>
+
         </div>
       </section>
     </div>
@@ -303,19 +311,21 @@ function CourseCard({ icon, title, description, color, image }: {
   image: string;
 }) {
   return (
-    <div className={`${color} rounded-xl overflow-hidden transform transition-all hover:scale-105 animate-on-scroll`}>
-      <div className="h-48 relative">
-        <img src={image} alt={title} className="w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-black/30"></div>
-      </div>
-      <div className="p-6">
-        <div className="text-white mb-4 w-8 h-8">
-          {icon}
+    <section id='courses'>
+      <div className={`${color} rounded-xl overflow-hidden transform transition-all hover:scale-105 animate-on-scroll`}>
+        <div className="h-48 relative">
+          <img src={image} alt={title} className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-black/30"></div>
         </div>
-        <h3 className="text-xl font-semibold mb-2 text-white">{title}</h3>
-        <p className="text-white/90">{description}</p>
+        <div className="p-6">
+          <div className="text-white mb-4 w-8 h-8">
+            {icon}
+          </div>
+          <h3 className="text-xl font-semibold mb-2 text-white">{title}</h3>
+          <p className="text-white/90">{description}</p>
+        </div>
       </div>
-    </div>
+    </section>
   );
 }
 
