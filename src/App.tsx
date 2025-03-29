@@ -165,7 +165,7 @@ function App() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
           <BenefitCard
             icon={<Users />}
-            title="Magic Teachers"
+            title="Experinced Teachers"
             description="Learn from experienced and passionate educators"
             color="bg-gradient-to-br from-pink-500 to-pink-600"
           />
