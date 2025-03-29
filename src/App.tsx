@@ -20,39 +20,67 @@ function App() {
     <div className="min-h-screen bg-gradient-to-br from-[#223a45] via-[#223a45] to-[#018dd2]">
 
       {/* Hero Section */}
-      <div className="relative h-screen flex items-center justify-center overflow-hidden">
-      <div className="absolute inset-0 w-full h-full">
-          <img
-            src="/summer.jpg"
-            alt="Summer Camp"
-            className="w-full h-full object-cover object-center"
-          />
+  {/* Hero Section */}
+  <div className="relative h-screen flex items-center justify-center overflow-hidden">
+    <div className="absolute inset-0 w-full h-full">
+      <img
+        src="/summer.jpg"
+        alt="Summer Camp"
+        className="w-full h-full object-cover object-center"
+      />
+    </div>
+
+    <div className="relative z-10 text-center px-4">
+      <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 animate-fade-in">
+        McZeal Academy
+      </h1>
+      <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 animate-fade-in">
+        Science Camp
+      </h1>
+      <p className="text-2xl text-purple-100 max-w-3xl mx-auto mb-8 animate-slide-up">
+        Where Science Meets Technology!
+      </p>
+
+      {/* Main Buttons */}
+      <div className="flex gap-4 justify-center animate-bounce-in">
+        <button
+          className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg transform transition-all hover:scale-105"
+          onClick={() => document.getElementById('courses')?.scrollIntoView({ behavior: 'smooth' })}
+        >
+          Explore Programs
+        </button>
+
+        <button
+  className="bg-purple-500 hover:bg-purple-600 text-white font-semibold py-3 px-6 rounded-lg transform transition-all hover:scale-105"
+  onClick={() => window.location.href = "https://wa.me/9840827408?text=Heyy%20McZeal%20Im%20interested%20in%20McZeal's%20Science%20Camp"}
+>
+  Register Now
+</button>
+
+
       </div>
 
-        <div className="relative z-10 text-center px-4">
-          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6  animate-fade-in">
-            McZeal Academy
-          </h1>
-          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6  animate-fade-in">
-            Science Camp
-          </h1>
-          <p className="text-2xl text-purple-100 max-w-3xl mx-auto mb-8 animate-slide-up">
-            Where Science Meets Technology!
-          </p>
-          <div className="flex gap-4 justify-center animate-bounce-in">
-          <button
-            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg transform transition-all hover:scale-105"
-            onClick={() => document.getElementById('courses')?.scrollIntoView({ behavior: 'smooth' })}
-          >
-            Explore Programs
-          </button>
+      {/* Additional Buttons */}
+      <div className="mt-6 flex flex-col sm:flex-row gap-4 justify-center">
+        <button className="bg-red-500 hover:bg-red-600 text-white font-semibold py-3 px-6 rounded-lg transform transition-all hover:scale-105">
+         Call Now <br></br>
+         +91 98408 27408
+        </button>
 
-            <button className="bg-purple-500 hover:bg-purple-600 text-white font-semibold py-3 px-6 rounded-lg transform transition-all hover:scale-105">
-              Register Now
-            </button>
-          </div>
-        </div>
-      </div>
+        <button className="bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-6 rounded-lg transform transition-all hover:scale-105">
+           Worksheet After <br></br>
+            Every Class
+        </button>
+
+        <button className="bg-yellow-500 hover:bg-yellow-600 text-white font-semibold py-3 px-6 rounded-lg transform transition-all hover:scale-105">
+           Certificate <br></br>
+            After Completion
+        </button>
+
+    </div>
+  </div>
+</div>
+
 
       {/* Introduction */}
       <section className="container mx-auto px-4 py-16">
@@ -165,7 +193,7 @@ function App() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
           <BenefitCard
             icon={<Users />}
-            title="Experinced Teachers"
+            title="Magic Teachers"
             description="Learn from experienced and passionate educators"
             color="bg-gradient-to-br from-pink-500 to-pink-600"
           />
@@ -316,30 +344,22 @@ function CourseCard({ icon, title, description, color, image }: {
 }) {
   return (
     <section id='courses'>
-      <a
-        href="https://study.mczealconsultancy.com/s/pages/summercamp-nungambakkam"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="block"
-      >
-        <div className={`${color} rounded-xl overflow-hidden transform transition-all hover:scale-105 animate-on-scroll cursor-pointer`}>
-          <div className="h-48 relative">
-            <img src={image} alt={title} className="w-full h-full object-cover" />
-            <div className="absolute inset-0 bg-black/30"></div>
-          </div>
-          <div className="p-6">
-            <div className="text-white mb-4 w-8 h-8">
-              {icon}
-            </div>
-            <h3 className="text-xl font-semibold mb-2 text-white">{title}</h3>
-            <p className="text-white/90">{description}</p>
-          </div>
+      <div className={`${color} rounded-xl overflow-hidden transform transition-all hover:scale-105 animate-on-scroll`}>
+        <div className="h-48 relative">
+          <img src={image} alt={title} className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-black/30"></div>
         </div>
-      </a>
+        <div className="p-6">
+          <div className="text-white mb-4 w-8 h-8">
+            {icon}
+          </div>
+          <h3 className="text-xl font-semibold mb-2 text-white">{title}</h3>
+          <p className="text-white/90">{description}</p>
+        </div>
+      </div>
     </section>
   );
 }
-
 
 function BenefitCard({ icon, title, description, color }: {
   icon: React.ReactNode;
