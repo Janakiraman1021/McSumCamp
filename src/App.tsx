@@ -230,32 +230,32 @@ function App() {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
           <TrainerCard
-            image="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=400&q=80"
+            image="/image.png"
             name="Prof Dinesh"
             specialty=" English Language"
           />
           <TrainerCard
-            image="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=400&q=80"
+            image="/image.png"
             name="Prof Cruz"
             specialty=" English Language"
           />
           <TrainerCard
-            image="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=400&q=80"
+            image="/jesu_raja.jpg"
             name="Prof Jesu Raja"
             specialty="Math and AI"
           />
           <TrainerCard
-            image="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80"
+            image="/Priscilla.png"
             name="Priscilla"
             specialty="Math and AI"
           />
           <TrainerCard
-            image="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=400&q=80"
+            image="/sai.JPG"
             name="Sai Krisshna"
             specialty="Web Development"
           />
           <TrainerCard
-            image="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=400&q=80"
+            image="/jani.jpg"
             name="Janakiraman"
             specialty="Web Development"
           />
