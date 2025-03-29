@@ -208,14 +208,18 @@ function App() {
           Summer Camp Moments
         </h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-6xl mx-auto">
-          <GalleryImage src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=400&q=80" />
-          <GalleryImage src="https://images.unsplash.com/photo-1588072432836-e10032774350?auto=format&fit=crop&w=400&q=80" />
-          <GalleryImage src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=400&q=80" />
-          <GalleryImage src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=400&q=80" />
-          <GalleryImage src="https://images.unsplash.com/photo-1611784728558-6c7d9b409cdf?auto=format&fit=crop&w=400&q=80" />
-          <GalleryImage src="https://images.unsplash.com/photo-1518133910546-b6c2fb7d79e3?auto=format&fit=crop&w=400&q=80" />
-          <GalleryImage src="https://images.unsplash.com/photo-1587620962725-abab7fe55159?auto=format&fit=crop&w=400&q=80" />
-          <GalleryImage src="https://images.unsplash.com/photo-1548263594-a71ea65a8598?auto=format&fit=crop&w=400&q=80" />
+        <GalleryImage src="/1.jpg" />
+        <GalleryImage src="/2.jpg" />
+        <GalleryImage src="/3.jpg" />
+        <GalleryImage src="/4.jpg" />
+        <GalleryImage src="/5.jpg" />
+        <GalleryImage src="/6.jpg" />
+        <GalleryImage src="/7.jpg" />
+        <GalleryImage src="/8.jpg" />
+        <GalleryImage src="/9.jpg" />
+        <GalleryImage src="/10.jpg" />
+        <GalleryImage src="/11.jpg" />
+        <GalleryImage src="/13.jpg" />
         </div>
       </section>
 
