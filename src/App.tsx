@@ -21,12 +21,14 @@ function App() {
 
       {/* Hero Section */}
       <div className="relative h-screen flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0">
-          <img
-            src="/summer.jpg"
-            alt="Summer Camp"
-          />
-        </div>
+      <div className="absolute inset-0 w-full h-full">
+  <img
+    src="/summer.jpg"
+    alt="Summer Camp"
+    className="w-full h-full object-cover object-center"
+  />
+</div>
+
         <div className="relative z-10 text-center px-4">
           <h1 className="text-5xl md:text-7xl font-bold text-white mb-6  animate-fade-in">
             McZeal Academy
