@@ -316,22 +316,30 @@ function CourseCard({ icon, title, description, color, image }: {
 }) {
   return (
     <section id='courses'>
-      <div className={`${color} rounded-xl overflow-hidden transform transition-all hover:scale-105 animate-on-scroll`}>
-        <div className="h-48 relative">
-          <img src={image} alt={title} className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-black/30"></div>
-        </div>
-        <div className="p-6">
-          <div className="text-white mb-4 w-8 h-8">
-            {icon}
+      <a
+        href="https://study.mczealconsultancy.com/s/pages/summercamp-nungambakkam"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block"
+      >
+        <div className={`${color} rounded-xl overflow-hidden transform transition-all hover:scale-105 animate-on-scroll cursor-pointer`}>
+          <div className="h-48 relative">
+            <img src={image} alt={title} className="w-full h-full object-cover" />
+            <div className="absolute inset-0 bg-black/30"></div>
           </div>
-          <h3 className="text-xl font-semibold mb-2 text-white">{title}</h3>
-          <p className="text-white/90">{description}</p>
+          <div className="p-6">
+            <div className="text-white mb-4 w-8 h-8">
+              {icon}
+            </div>
+            <h3 className="text-xl font-semibold mb-2 text-white">{title}</h3>
+            <p className="text-white/90">{description}</p>
+          </div>
         </div>
-      </div>
+      </a>
     </section>
   );
 }
+
 
 function BenefitCard({ icon, title, description, color }: {
   icon: React.ReactNode;
