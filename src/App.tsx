@@ -1,5 +1,8 @@
 import React, { useEffect } from 'react';
 import { Code2, Brain, Globe2, Monitor, Users, Clock, Sparkles, GraduationCap, Star, Rocket, Heart, Trophy } from 'lucide-react';
+import { useState } from "react";
+import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
 
 function App() {
   useEffect(() => {
@@ -142,42 +145,42 @@ function App() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
           <CourseCard
             icon={<Code2 />}
-            title="Science & Code"
+            title="INNOVATIVE SCIENCE & CODING LAB"
             description="Learn programming fundamentals and scientific concepts through hands-on projects"
             color="bg-gradient-to-br from-blue-500 to-blue-600"
-            image="https://images.unsplash.com/photo-1587620962725-abab7fe55159?auto=format&fit=crop&w=400&q=80"
+            image="/science&codinglabn.jpg"
           />
           <CourseCard
             icon={<Brain />}
-            title="Math"
+            title="SPEED MATH"
             description="Master mathematical concepts with interactive problem-solving sessions"
             color="bg-gradient-to-br from-purple-500 to-purple-600"
             image="https://images.unsplash.com/photo-1518133910546-b6c2fb7d79e3?auto=format&fit=crop&w=400&q=80"
           />
           <CourseCard
             icon={<Globe2 />}
-            title="English Fluency"
+            title="ENGLISH FLUENCY & PUBLIC SPEAKING"
             description="Improve communication skills through engaging activities"
             color="bg-gradient-to-br from-blue-400 to-blue-500"
             image="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=400&q=80"
           />
           <CourseCard
             icon={<Monitor />}
-            title="Web Development"
+            title="WEB DEVELOPMENT & DESIGNING "
             description="Create your own websites and web applications"
             color="bg-gradient-to-br from-blue-600 to-blue-700"
-            image="https://images.unsplash.com/photo-1611784728558-6c7d9b409cdf?auto=format&fit=crop&w=400&q=80"
+            image="https://images.unsplash.com/photo-1587620962725-abab7fe55159?auto=format&fit=crop&w=400&q=80"
           />
           <CourseCard
             icon={<GraduationCap />}
-            title="Spoken Hindi & Other Languages"
+            title="SPOKEN HINDI"
             description="Learn new languages through immersive experiences"
             color="bg-gradient-to-br from-blue-500 to-blue-600"
-            image="https://images.unsplash.com/photo-1548263594-a71ea65a8598?auto=format&fit=crop&w=400&q=80"
+            image="/spoken-hindi.jpg"
           /> 
           <CourseCard
           icon={<GraduationCap />}
-          title="Prompt Master: AI & canva Tools "
+          title="PROMPT MASTER : AI & CANVA TOOLS"
           description="Learn new languages through immersive experiences"
           color="bg-gradient-to-br from-blue-500 to-blue-600"
           image="https://images.unsplash.com/photo-1548263594-a71ea65a8598?auto=format&fit=crop&w=400&q=80"
@@ -335,31 +338,40 @@ function App() {
   );
 }
 
-function CourseCard({ icon, title, description, color, image }: {
-  icon: React.ReactNode;
-  title: string;
-  description: string;
-  color: string;
-  image: string;
-}) {
+
+
+function CourseCard({ icon, title, description, color, image }) {
+  const [open, setOpen] = useState(false);
+
   return (
     <section id='courses'>
-      <div className={`${color} rounded-xl overflow-hidden transform transition-all hover:scale-105 animate-on-scroll`}>
+      <div className={`${color} rounded-xl overflow-hidden transform transition-all hover:scale-105 animate-on-scroll cursor-pointer`} onClick={() => setOpen(true)}>
         <div className="h-48 relative">
           <img src={image} alt={title} className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-black/30"></div>
         </div>
         <div className="p-6">
-          <div className="text-white mb-4 w-8 h-8">
-            {icon}
-          </div>
+          <div className="text-white mb-4 w-8 h-8">{icon}</div>
           <h3 className="text-xl font-semibold mb-2 text-white">{title}</h3>
           <p className="text-white/90">{description}</p>
         </div>
       </div>
+
+      {open && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black/50 z-50">
+          <div className="bg-white p-6 rounded-lg shadow-lg w-96">
+            <h2 className="text-lg font-semibold mb-4">Select a Time Slot</h2>
+            <button className="w-full bg-blue-500 text-white py-2 rounded-lg mb-2" onClick={() => { alert("Morning Batch Selected (10-12)"); setOpen(false); }}>Morning Batch (10:30-12:30PM)</button>
+            <button className="w-full bg-blue-500 text-white py-2 rounded-lg" onClick={() => { alert("Evening Batch Selected (3:30-5:30)"); setOpen(false); }}>Evening Batch (3:30PM - 5:30 PM)</button>
+            <button className="w-full mt-4 bg-gray-500 text-white py-2 rounded-lg" onClick={() => setOpen(false)}>Close</button>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
+
+
 
 function BenefitCard({ icon, title, description, color }: {
   icon: React.ReactNode;
