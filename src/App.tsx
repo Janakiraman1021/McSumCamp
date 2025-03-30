@@ -1,10 +1,11 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Code2, Brain, Globe2, Monitor, Users, Clock, Sparkles, GraduationCap, Star, Rocket, Heart, Trophy } from 'lucide-react';
-import { useState } from "react";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 
 function App() {
+  const [showCertificatePopup, setShowCertificatePopup] = useState(false);
+  
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -23,67 +24,65 @@ function App() {
     <div className="min-h-screen bg-gradient-to-br from-[#223a45] via-[#223a45] to-[#018dd2]">
 
       {/* Hero Section */}
-  {/* Hero Section */}
-  <div className="relative h-screen flex items-center justify-center overflow-hidden">
-    <div className="absolute inset-0 w-full h-full">
-      <img
-        src="/summer.jpg"
-        alt="Summer Camp"
-        className="w-full h-full object-cover object-center"
-      />
-    </div>
+      <div className="relative h-screen flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 w-full h-full">
+          <img
+            src="/summer.jpg"
+            alt="Summer Camp"
+            className="w-full h-full object-cover object-center"
+          />
+        </div>
 
-    <div className="relative z-10 text-center px-4">
-      <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 animate-fade-in">
-        McZeal Academy
-      </h1>
-      <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 animate-fade-in">
-        Science Camp
-      </h1>
-      <p className="text-2xl text-purple-100 max-w-3xl mx-auto mb-8 animate-slide-up">
-        Where Science Meets Technology!
-      </p>
+        <div className="relative z-10 text-center px-4">
+          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 animate-fade-in">
+            McZeal Academy
+          </h1>
+          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 animate-fade-in">
+            Science Camp
+          </h1>
+          <p className="text-2xl text-purple-100 max-w-3xl mx-auto mb-8 animate-slide-up">
+            Where Science Meets Technology!
+          </p>
 
-      {/* Main Buttons */}
-      <div className="flex gap-4 justify-center animate-bounce-in">
-        <button
-          className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg transform transition-all hover:scale-105"
-          onClick={() => document.getElementById('courses')?.scrollIntoView({ behavior: 'smooth' })}
-        >
-          Explore Programs
-        </button>
+          {/* Main Buttons */}
+          <div className="flex gap-4 justify-center animate-bounce-in">
+            <button
+              className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg transform transition-all hover:scale-105"
+              onClick={() => document.getElementById('courses')?.scrollIntoView({ behavior: 'smooth' })}
+            >
+              Explore Programs
+            </button>
 
-        <button
-  className="bg-purple-500 hover:bg-purple-600 text-white font-semibold py-3 px-6 rounded-lg transform transition-all hover:scale-105"
-  onClick={() => window.location.href = "https://wa.me/9840827408?text=Heyy%20McZeal%20Im%20interested%20in%20McZeal's%20Science%20Camp"}
->
-  Register Now
-</button>
+            <button
+              className="bg-purple-500 hover:bg-purple-600 text-white font-semibold py-3 px-6 rounded-lg transform transition-all hover:scale-105"
+              onClick={() => window.location.href = "https://wa.me/9840827408?text=Heyy%20McZeal%20Im%20interested%20in%20McZeal's%20Science%20Camp"}
+            >
+              Register Now
+            </button>
+          </div>
 
+          {/* Additional Buttons */}
+          <div className="mt-6 flex flex-col sm:flex-row gap-4 justify-center">
+            <button className="bg-red-500 hover:bg-red-600 text-white font-semibold py-3 px-6 rounded-lg transform transition-all hover:scale-105">
+              Call Now <br></br>
+              +91 98408 27408
+            </button>
 
+            <button className="bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-6 rounded-lg transform transition-all hover:scale-105">
+              Worksheet After <br></br>
+              Every Class
+            </button>
+        
+            <button
+              className="bg-yellow-500 hover:bg-yellow-600 text-white font-semibold py-3 px-6 rounded-lg transform transition-all hover:scale-105"
+              onClick={() => setShowCertificatePopup(true)}
+            >
+              Certificate <br></br>
+              After Completion
+            </button>
+          </div>
+        </div>
       </div>
-
-      {/* Additional Buttons */}
-      <div className="mt-6 flex flex-col sm:flex-row gap-4 justify-center">
-        <button className="bg-red-500 hover:bg-red-600 text-white font-semibold py-3 px-6 rounded-lg transform transition-all hover:scale-105">
-         Call Now <br></br>
-         +91 98408 27408
-        </button>
-
-        <button className="bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-6 rounded-lg transform transition-all hover:scale-105">
-           Worksheet After <br></br>
-            Every Class
-        </button>
-
-        <button className="bg-yellow-500 hover:bg-yellow-600 text-white font-semibold py-3 px-6 rounded-lg transform transition-all hover:scale-105">
-           Certificate <br></br>
-            After Completion
-        </button>
-
-    </div>
-  </div>
-</div>
-
 
       {/* Introduction */}
       <section className="container mx-auto px-4 py-16">
@@ -148,28 +147,35 @@ function App() {
             title="INNOVATIVE SCIENCE & CODING LAB"
             description="Learn programming fundamentals and scientific concepts through hands-on projects"
             color="bg-gradient-to-br from-blue-500 to-blue-600"
-            image="/science&codinglabn.jpg"
-          />
-          <CourseCard
-            icon={<Brain />}
-            title="SPEED MATH"
-            description="Master mathematical concepts with interactive problem-solving sessions"
-            color="bg-gradient-to-br from-purple-500 to-purple-600"
-            image="https://images.unsplash.com/photo-1518133910546-b6c2fb7d79e3?auto=format&fit=crop&w=400&q=80"
-          />
-          <CourseCard
-            icon={<Globe2 />}
-            title="ENGLISH FLUENCY & PUBLIC SPEAKING"
-            description="Improve communication skills through engaging activities"
-            color="bg-gradient-to-br from-blue-400 to-blue-500"
-            image="/psef.jpg"
+            image="/innovatice-science-coding.jpg"
           />
           <CourseCard
             icon={<Monitor />}
             title="WEB DEVELOPMENT & DESIGNING "
             description="Create your own websites and web applications"
             color="bg-gradient-to-br from-blue-600 to-blue-700"
-            image="https://images.unsplash.com/photo-1587620962725-abab7fe55159?auto=format&fit=crop&w=400&q=80"
+            image="web_dev.jpg"
+          />
+          <CourseCard
+            icon={<GraduationCap />}
+            title="PROMPT MASTER : AI & CANVA TOOLS"
+            description="Learn new languages through immersive experiences"
+            color="bg-gradient-to-br from-blue-500 to-blue-600"
+            image="/prompt.jpg"
+          />
+          <CourseCard
+            icon={<Brain />}
+            title="SPEED MATH"
+            description="Master mathematical concepts with interactive problem-solving sessions"
+            color="bg-gradient-to-br from-purple-500 to-purple-600"
+            image="speed-math.jpg"
+          />
+          <CourseCard
+            icon={<Globe2 />}
+            title="ENGLISH FLUENCY & PUBLIC SPEAKING"
+            description="Improve communication skills through engaging activities"
+            color="bg-gradient-to-br from-blue-400 to-blue-500"
+            image="/english-fluency.jpg"
           />
           <CourseCard
             icon={<GraduationCap />}
@@ -177,14 +183,7 @@ function App() {
             description="Learn new languages through immersive experiences"
             color="bg-gradient-to-br from-blue-500 to-blue-600"
             image="/spoken-hindi.jpg"
-          /> 
-          <CourseCard
-          icon={<GraduationCap />}
-          title="PROMPT MASTER : AI & CANVA TOOLS"
-          description="Learn new languages through immersive experiences"
-          color="bg-gradient-to-br from-blue-500 to-blue-600"
-          image="/prompt.jpg"
-        />
+          />
         </div>
       </section>
 
@@ -239,18 +238,18 @@ function App() {
           Summer Camp Moments
         </h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-6xl mx-auto">
-        <GalleryImage src="/1.jpg" />
-        <GalleryImage src="/2.jpg" />
-        <GalleryImage src="/3.jpg" />
-        <GalleryImage src="/4.jpg" />
-        <GalleryImage src="/5.jpg" />
-        <GalleryImage src="/6.jpg" />
-        <GalleryImage src="/7.jpg" />
-        <GalleryImage src="/8.jpg" />
-        <GalleryImage src="/9.jpg" />
-        <GalleryImage src="/10.jpg" />
-        <GalleryImage src="/11.jpg" />
-        <GalleryImage src="/13.jpg" />
+          <GalleryImage src="/1.jpg" />
+          <GalleryImage src="/2.jpg" />
+          <GalleryImage src="/3.jpg" />
+          <GalleryImage src="/4.jpg" />
+          <GalleryImage src="/5.jpg" />
+          <GalleryImage src="/6.jpg" />
+          <GalleryImage src="/7.jpg" />
+          <GalleryImage src="/8.jpg" />
+          <GalleryImage src="/9.jpg" />
+          <GalleryImage src="/10.jpg" />
+          <GalleryImage src="/11.jpg" />
+          <GalleryImage src="/13.jpg" />
         </div>
       </section>
 
@@ -331,39 +330,135 @@ function App() {
           >
             Enroll Now
           </button>
-
         </div>
       </section>
+
+      {/* Certificate Popup */}
+      {/* Certificate Popup */}
+{showCertificatePopup && (
+  <div className="fixed inset-0 flex items-center justify-center bg-black/70 z-50">
+    <div className="bg-white p-6 rounded-lg shadow-lg max-w-2xl w-full">
+      <div className="flex justify-between items-center mb-4">
+        <h2 className="text-xl font-bold">Sample Certificate</h2>
+        <button
+          onClick={() => setShowCertificatePopup(false)}
+          className="text-gray-500 hover:text-gray-700"
+        >
+          ✕
+        </button>
+      </div>
+      
+      {/* Certificate Image - Portrait Mode */}
+      <div className="mb-4 flex justify-center">
+        <img 
+          src="/certificare.jpg" 
+          alt="McZeal Academy Certificate" 
+          className="w-[350px] h-[500px] object-cover border-2 border-blue-200 rounded-lg"
+        />
+      </div>
+      
+      <button
+        className="w-full bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-lg"
+        onClick={() => setShowCertificatePopup(false)}
+      >
+        Close
+      </button>
+    </div>
+  </div>
+)}
+
     </div>
   );
 }
-
-
 
 function CourseCard({ icon, title, description, color, image }) {
   const [open, setOpen] = useState(false);
 
   return (
     <section id='courses'>
-      <div className={`${color} rounded-xl overflow-hidden transform transition-all hover:scale-105 animate-on-scroll cursor-pointer`} onClick={() => setOpen(true)}>
-        <div className="h-48 relative">
-          <img src={image} alt={title} className="w-full h-full object-cover" />
+      <div className={`${color} rounded-xl overflow-hidden transform transition-all hover:scale-105 animate-on-scroll cursor-pointer flex flex-col h-full`} onClick={() => setOpen(true)}>
+        <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>  {/* 16:9 aspect ratio */}
+          <img 
+            src={image} 
+            alt={title} 
+            className="absolute top-0 left-0 w-full h-full object-cover" 
+          />
           <div className="absolute inset-0 bg-black/30"></div>
         </div>
-        <div className="p-6">
-          <div className="text-white mb-4 w-8 h-8">{icon}</div>
-          <h3 className="text-xl font-semibold mb-2 text-white">{title}</h3>
-          <p className="text-white/90">{description}</p>
+        <div className="p-4 flex flex-col flex-grow">
+          <div className="text-white mb-2 w-6 h-6">{icon}</div>
+          <h3 className="text-base font-semibold mb-1 text-white">{title}</h3>
+          <p className="text-white/90 text-sm">{description}</p>
         </div>
       </div>
 
       {open && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black/50 z-50">
-          <div className="bg-white p-6 rounded-lg shadow-lg w-96">
-            <h2 className="text-lg font-semibold mb-4">Select a Time Slot</h2>
-            <button className="w-full bg-blue-500 text-white py-2 rounded-lg mb-2" onClick={() => { alert("Morning Batch Selected (10-12)"); setOpen(false); }}>Morning Batch (10:30-12:30PM)</button>
-            <button className="w-full bg-blue-500 text-white py-2 rounded-lg" onClick={() => { alert("Evening Batch Selected (3:30-5:30)"); setOpen(false); }}>Evening Batch (3:30PM - 5:30 PM)</button>
-            <button className="w-full mt-4 bg-gray-500 text-white py-2 rounded-lg" onClick={() => setOpen(false)}>Close</button>
+        <div className="fixed inset-0 flex items-center justify-center bg-black/50 z-50 p-4">
+          <div className="bg-white rounded-lg shadow-lg w-full max-w-md md:max-w-lg overflow-y-auto max-h-[90vh]">
+            <div className="sticky top-0 bg-white z-10 flex justify-between items-center p-4 border-b">
+              <h2 className="text-lg md:text-xl font-bold text-blue-600">{title}</h2>
+              <button 
+                onClick={() => setOpen(false)} 
+                className="text-gray-500 hover:text-gray-700 p-2"
+              >
+                ✕
+              </button>
+            </div>
+            
+            <div className="p-4">
+              <div className="relative w-full rounded-lg overflow-hidden mb-4" style={{ paddingBottom: "56.25%" }}>
+                <img 
+                  src={image} 
+                  alt={title} 
+                  className="absolute top-0 left-0 w-full h-full object-cover" 
+                />
+              </div>
+              
+              <div className="mb-6">
+                <h3 className="text-lg font-semibold mb-2">Course Details</h3>
+                <p className="text-gray-700 mb-4">{description}</p>
+                
+                <div className="bg-blue-50 p-4 rounded-lg mb-4">
+                  <h4 className="font-medium text-blue-700 mb-2">What You'll Learn:</h4>
+                  <ul className="list-disc pl-5 text-gray-700">
+                    <li>Fundamental concepts and practical applications</li>
+                    <li>Hands-on projects to reinforce learning</li>
+                    <li>Interactive sessions with experienced instructors</li>
+                    <li>Collaborative activities with peers</li>
+                  </ul>
+                </div>
+                
+                <div className="bg-purple-50 p-4 rounded-lg">
+                  <h4 className="font-medium text-purple-700 mb-2">Benefits:</h4>
+                  <ul className="list-disc pl-5 text-gray-700">
+                    <li>Worksheets after every class</li>
+                    <li>Certificate upon completion</li>
+                    <li>Develop critical thinking skills</li>
+                    <li>Build confidence and creativity</li>
+                  </ul>
+                </div>
+              </div>
+              
+              <div className="border-t pt-4">
+                <h3 className="text-lg font-semibold mb-3">Select a Time Slot</h3>
+                <div className="space-y-3">
+                  <button 
+                    className="w-full bg-blue-500 hover:bg-blue-600 text-white py-3 px-4 rounded-lg flex items-center justify-center"
+                    onClick={() => { alert("Morning Batch Selected (10:30-12:30PM)"); setOpen(false); }}
+                  >
+                    <Clock className="w-5 h-5 mr-2" />
+                    Morning Batch (10:30-12:30PM)
+                  </button>
+                  <button 
+                    className="w-full bg-purple-500 hover:bg-purple-600 text-white py-3 px-4 rounded-lg flex items-center justify-center"
+                    onClick={() => { alert("Evening Batch Selected (3:30-5:30PM)"); setOpen(false); }}
+                  >
+                    <Clock className="w-5 h-5 mr-2" />
+                    Evening Batch (3:30PM - 5:30PM)
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       )}
@@ -371,14 +466,7 @@ function CourseCard({ icon, title, description, color, image }) {
   );
 }
 
-
-
-function BenefitCard({ icon, title, description, color }: {
-  icon: React.ReactNode;
-  title: string;
-  description: string;
-  color: string;
-}) {
+function BenefitCard({ icon, title, description, color }) {
   return (
     <div className={`${color} rounded-xl p-6 text-white transform transition-all hover:scale-105 animate-on-scroll`}>
       <div className="text-white mb-4 w-8 h-8">
@@ -390,7 +478,7 @@ function BenefitCard({ icon, title, description, color }: {
   );
 }
 
-function GalleryImage({ src }: { src: string }) {
+function GalleryImage({ src }) {
   return (
     <div className="relative group overflow-hidden rounded-lg animate-on-scroll">
       <img
@@ -405,7 +493,7 @@ function GalleryImage({ src }: { src: string }) {
   );
 }
 
-function TrainerCard({ image, name, specialty }: { image: string; name: string; specialty: string }) {
+function TrainerCard({ image, name, specialty }) {
   return (
     <div className="group animate-on-scroll">
       <div className="relative overflow-hidden rounded-xl">
@@ -425,12 +513,7 @@ function TrainerCard({ image, name, specialty }: { image: string; name: string; 
   );
 }
 
-function TestimonialCard({ name, image, text, rating }: {
-  name: string;
-  image: string;
-  text: string;
-  rating: number;
-}) {
+function TestimonialCard({ name, image, text, rating }) {
   return (
     <div className="bg-white/10 backdrop-blur-lg rounded-xl p-6 transform transition-all hover:scale-105 animate-on-scroll">
       <div className="flex items-center mb-4">
@@ -450,4 +533,3 @@ function TestimonialCard({ name, image, text, rating }: {
 }
 
 export default App;
-
