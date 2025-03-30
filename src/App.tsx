@@ -88,7 +88,7 @@ function App() {
       <section className="container mx-auto px-4 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
           <div className="space-y-6 animate-on-scroll">
-            <h2 className="text-4xl font-bold text-white">Welcome to Our Summer Adventure!</h2>
+            <h2 className="text-4xl font-bold text-white">Welcome to Our Summer Science Camp!</h2>
             <p className="text-purple-100 text-lg">
               At McZeal Academy, we believe in making summer learning an unforgettable experience. Our program combines cutting-edge technology, creative activities, and hands-on learning to inspire young minds.
             </p>
@@ -154,14 +154,14 @@ function App() {
             title="WEB DEVELOPMENT & DESIGNING "
             description="Create your own websites and web applications"
             color="bg-gradient-to-br from-blue-600 to-blue-700"
-            image="web_dev.jpg"
+            image="web1.jpg"
           />
           <CourseCard
             icon={<GraduationCap />}
             title="PROMPT MASTER : AI & CANVA TOOLS"
             description="Learn new languages through immersive experiences"
             color="bg-gradient-to-br from-blue-500 to-blue-600"
-            image="/prompt.jpg"
+            image="/ai-canva.jpg"
           />
           <CourseCard
             icon={<Brain />}
