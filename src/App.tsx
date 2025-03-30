@@ -162,7 +162,7 @@ function App() {
             title="ENGLISH FLUENCY & PUBLIC SPEAKING"
             description="Improve communication skills through engaging activities"
             color="bg-gradient-to-br from-blue-400 to-blue-500"
-            image="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=400&q=80"
+            image="/psef.jpg"
           />
           <CourseCard
             icon={<Monitor />}
@@ -183,7 +183,7 @@ function App() {
           title="PROMPT MASTER : AI & CANVA TOOLS"
           description="Learn new languages through immersive experiences"
           color="bg-gradient-to-br from-blue-500 to-blue-600"
-          image="https://images.unsplash.com/photo-1548263594-a71ea65a8598?auto=format&fit=crop&w=400&q=80"
+          image="/prompt.jpg"
         />
         </div>
       </section>
