@@ -445,6 +445,77 @@ function App() {
 function CourseCard({ icon, title, description, color, image }) {
   const [open, setOpen] = useState(false);
 
+  // Helper function to get batch timings based on course title
+  const getBatchTimings = (courseTitle) => {
+    const courseTitleUpper = courseTitle.toUpperCase();
+    
+    if (courseTitleUpper.includes("INNOVATIVE SCIENCE & CODING LAB")) {
+      return {
+        batchOne: "10:30 AM - 12:30 PM",
+        batchTwo: "3:30 PM - 5:30 PM",
+        duration: "12 Days",
+        ageGroups: ["8 - 12", "13 - 16", "17 - 21"],
+        price: "₹2000"
+      };
+    } 
+    else if (courseTitleUpper.includes("WEB DEVELOPMENT & DESIGNING")) {
+      return {
+        batchOne: "10:30 AM - 12:30 PM",
+        batchTwo: "3:30 PM - 5:30 PM",
+        duration: courseTitleUpper.includes("17 - 21") ? "24 Days" : "12 Days",
+        ageGroups: ["12 - 16", "17 - 21"],
+        price: courseTitleUpper.includes("17 - 21") ? "₹5000" : "₹2000"
+      };
+    }
+    else if (courseTitleUpper.includes("MATH MASTERY") || courseTitleUpper.includes("SPEED MATH")) {
+      return {
+        batchOne: "9:00 AM - 10:15 AM",
+        batchTwo: "-",
+        duration: "12 Days",
+        ageGroups: ["7 - 11", "12 - 15"],
+        price: "₹2000"
+      };
+    }
+    else if (courseTitleUpper.includes("PROMPT MASTER") || courseTitleUpper.includes("AI & CANVA")) {
+      return {
+        batchOne: "2:00 PM - 3:00 PM",
+        batchTwo: "-",
+        duration: "12 Days",
+        ageGroups: ["11+ Years"],
+        price: "₹2000"
+      };
+    }
+    else if (courseTitleUpper.includes("ENGLISH FLUENCY") || courseTitleUpper.includes("PUBLIC SPEAKING")) {
+      return {
+        batchOne: "10:30 AM - 12:30 PM",
+        batchTwo: "3:30 PM - 5:30 PM",
+        duration: "15 Days",
+        ageGroups: ["7 - 14", "15 - 21"],
+        price: "₹5000"
+      };
+    }
+    else if (courseTitleUpper.includes("SPOKEN HINDI")) {
+      return {
+        batchOne: "6:00 PM - 8:00 PM",
+        batchTwo: "-",
+        duration: "24 Days",
+        ageGroups: ["7+ Years"],
+        price: "₹5000"
+      };
+    }
+    
+    // Default values if no match
+    return {
+      batchOne: "10:30 AM - 12:30 PM",
+      batchTwo: "3:30 PM - 5:30 PM",
+      duration: "12 Days",
+      ageGroups: ["8 - 16"],
+      price: "₹2000"
+    };
+  };
+  
+  const courseInfo = getBatchTimings(title);
+
   return (
     <section id='courses'>
       <div className={`${color} rounded-xl overflow-hidden transform transition-all hover:scale-105 animate-on-scroll cursor-pointer flex flex-col h-full`} onClick={() => setOpen(true)}>
@@ -490,12 +561,11 @@ function CourseCard({ icon, title, description, color, image }) {
                 <p className="text-gray-700 mb-4">{description}</p>
                 
                 <div className="bg-blue-50 p-4 rounded-lg mb-4">
-                  <h4 className="font-medium text-blue-700 mb-2">What You'll Learn:</h4>
+                  <h4 className="font-medium text-blue-700 mb-2">Course Information:</h4>
                   <ul className="list-disc pl-5 text-gray-700">
-                    <li>Fundamental concepts and practical applications</li>
-                    <li>Hands-on projects to reinforce learning</li>
-                    <li>Interactive sessions with experienced instructors</li>
-                    <li>Collaborative activities with peers</li>
+                    <li>Age Groups: {courseInfo.ageGroups.join(", ")}</li>
+                    <li>Duration: {courseInfo.duration}</li>
+                    <li>Price: {courseInfo.price}</li>
                   </ul>
                 </div>
                 
@@ -515,18 +585,21 @@ function CourseCard({ icon, title, description, color, image }) {
                 <div className="space-y-3">
                   <button 
                     className="w-full bg-blue-500 hover:bg-blue-600 text-white py-3 px-4 rounded-lg flex items-center justify-center"
-                    onClick={() => { alert("Morning Batch Selected (10:30-12:30PM)"); setOpen(false); }}
+                    onClick={() => { alert(`Batch 1 Selected (${courseInfo.batchOne})`); setOpen(false); }}
                   >
                     <Clock className="w-5 h-5 mr-2" />
-                    Morning Batch (10:30-12:30PM)
+                    Batch 1: {courseInfo.batchOne}
                   </button>
-                  <button 
-                    className="w-full bg-purple-500 hover:bg-purple-600 text-white py-3 px-4 rounded-lg flex items-center justify-center"
-                    onClick={() => { alert("Evening Batch Selected (3:30-5:30PM)"); setOpen(false); }}
-                  >
-                    <Clock className="w-5 h-5 mr-2" />
-                    Evening Batch (3:30PM - 5:30PM)
-                  </button>
+                  
+                  {courseInfo.batchTwo !== "-" && (
+                    <button 
+                      className="w-full bg-purple-500 hover:bg-purple-600 text-white py-3 px-4 rounded-lg flex items-center justify-center"
+                      onClick={() => { alert(`Batch 2 Selected (${courseInfo.batchTwo})`); setOpen(false); }}
+                    >
+                      <Clock className="w-5 h-5 mr-2" />
+                      Batch 2: {courseInfo.batchTwo}
+                    </button>
+                  )}
                 </div>
               </div>
             </div>
