@@ -638,6 +638,10 @@ function CourseCard({ icon, title, description, color, image }) {
                             window.location.href = "https://study.mczealconsultancy.com/courses/English-Fluency--Public-Speaking-Age-15-67ebd43b6777cb0a388972b7";
                           }
                         }
+                        else if (title.toUpperCase().includes("SPOKEN HINDI")) {
+
+                            window.location.href = "https://study.mczealconsultancy.com/courses/Learn-Hindi--67ebd4db451a672414c85b1b";
+                          }
                         
                         else {
                           alert(`Selected: ${group}`); 
