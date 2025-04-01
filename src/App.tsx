@@ -617,8 +617,24 @@ function CourseCard({ icon, title, description, color, image }) {
                       key={index}
                       className="w-full bg-blue-500 hover:bg-blue-600 text-white py-3 px-4 rounded-lg flex items-center justify-center"
                       onClick={() => { 
-                        alert(`Selected: ${group}`); 
-                        setOpen(false); 
+                        if (title.toUpperCase().includes("WEB DEVELOPMENT")) {
+                          if (group === "Class 6-8") {
+                            window.location.href = "https://study.mczealconsultancy.com/courses/Web-Development---Class-6-8-67ebcfc26777cb0a38897095";
+                          } else if (group === "Class 9-12") {
+                            window.location.href = "https://study.mczealconsultancy.com/courses/Web-Development---Class-9--12-67ebd107451a672414c859a5";
+                          }
+                        } 
+                        else if (title.toUpperCase().includes("SPEED MATH")) {
+                          if (group === "Class 1-5") {
+                            window.location.href = "https://study.mczealconsultancy.com/courses/Speed-Math-for-Young-Minds---Class---1-to-5--67ebd206d1b8b445deb7d1a5";
+                          } else if (group === "Class 6-8") {
+                            window.location.href = "https://study.mczealconsultancy.com/courses/Advanced-Speed-Math-for-Young-Minds---Class-6---8-67ebd2f2e02a1922b52ce483";
+                          }
+                        }
+                        
+                        else {
+                          alert(`Selected: ${group}`); 
+                        }
                       }}
                     >
                       <Users className="w-5 h-5 mr-2" />
