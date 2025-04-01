@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 
 function App() {
   const [showCertificatePopup, setShowCertificatePopup] = useState(false);
-  
+
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -144,7 +144,7 @@ function App() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
           <CourseCard
             icon={<Monitor />}
-            title="WEB DEVELOPMENT & DESIGNING "
+            title="WEB DEVELOPMENT"
             description="Create your own websites and web applications"
             color="bg-gradient-to-br from-blue-600 to-blue-700"
             image="web1.jpg"
@@ -169,6 +169,20 @@ function App() {
             description="Learn new languages through immersive experiences"
             color="bg-gradient-to-br from-blue-500 to-blue-600"
             image="/spoken-hindi.jpg"
+          />
+          <ProfessionalCourseCard
+            icon={<Code2 />}
+            title="Professional Course 1: WEB DEVELOPMENT & DESIGNING"
+            description="Advanced web development with industry-standard technologies and real-world projects"
+            color="bg-gradient-to-br from-green-600 to-green-700"
+            image="web1.jpg"
+          />
+          <ProfessionalCourseCard
+            icon={<Code2 />}
+            title="Professional Course 2: PYTHON & GAME DEVELOPMENT"
+            description="Learn Python programming and create exciting games using PyGame"
+            color="bg-gradient-to-br from-yellow-600 to-yellow-700"
+            image="python-game.jpg"
           />
         </div>
       </section>
@@ -508,7 +522,16 @@ function CourseCard({ icon, title, description, color, image }) {
         price: "₹5000"
       };
     }
-    
+    else if (courseTitleUpper.includes("Professional")) {
+      return {
+        batchOne: "6:00 PM - 8:00 PM",
+        batchTwo: "-",
+        duration: "30 Days",
+        ageGroups: ["17+ years"],
+        price: "₹10000"
+      };
+    }
+
     // Default values if no match
     return {
       batchOne: "10:30 AM - 12:30 PM",
@@ -568,14 +591,9 @@ function CourseCard({ icon, title, description, color, image }) {
                 <div className="bg-blue-50 p-4 rounded-lg mb-4">
                   <h4 className="font-medium text-blue-700 mb-2">Course Information:</h4>
                   <ul className="list-disc pl-5 text-gray-700">
-                    <li>Timing: {courseTitleUpper.includes("WEB DEVELOPMENT") ? 
-                        "10:30 AM - 12:30 PM" : 
-                        courseTitleUpper.includes("MATH") ? 
-                        "9:00 AM - 10:15 AM" : 
-                        courseInfo.batchOne}
-                    </li>
+                    <li>Timing: {courseInfo.batchOne}</li>
                     <li>Duration: {courseInfo.duration}</li>
-                    <li>Price:  <span >50% Off </span> {courseInfo.price}</li>
+                    <li>Price: <span className="bg-red-500 text-white text-xs px-2 py-1 rounded-full">50% OFF</span> {courseInfo.price}</li>
                   </ul>
                 </div>
                 
@@ -592,7 +610,7 @@ function CourseCard({ icon, title, description, color, image }) {
               
               {/* Replacing batch timing buttons with class selection */}
               <div className="border-t pt-4">
-                <h3 className="text-lg font-semibold mb-3">Select Your Class</h3>
+                <h3 className="text-lg font-semibold mb-3">Age Requirement</h3>
                 <div className="space-y-3">
                   {courseInfo.ageGroups.map((group, index) => (
                     <button 
@@ -603,7 +621,7 @@ function CourseCard({ icon, title, description, color, image }) {
                         setOpen(false); 
                       }}
                     >
-                      <GraduationCap className="w-5 h-5 mr-2" />
+                      <Users className="w-5 h-5 mr-2" />
                       {group}
                     </button>
                   ))}
@@ -616,6 +634,134 @@ function CourseCard({ icon, title, description, color, image }) {
       )}
     </section>
   );
+}
+
+function ProfessionalCourseCard({ icon, title, description, color, image }) {
+  const [open, setOpen] = useState(false);
+  const courseInfo = getProfessionalCourseInfo(title);
+
+  return (
+    <section id='courses'>
+      <div className={`${color} rounded-xl overflow-hidden transform transition-all hover:scale-105 animate-on-scroll cursor-pointer flex flex-col h-full`} onClick={() => setOpen(true)}>
+        <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>  {/* 16:9 aspect ratio */}
+          <img 
+            src={image} 
+            alt={title} 
+            className="absolute top-0 left-0 w-full h-full object-cover" 
+          />
+          <div className="absolute inset-0 bg-black/30"></div>
+        </div>
+        <div className="p-4 flex flex-col flex-grow">
+          <div className="text-white mb-2 w-6 h-6">{icon}</div>
+          <h3 className="text-base font-semibold mb-1 text-white">{title}</h3>
+          <p className="text-white/90 text-sm">{description}</p>
+        </div>
+      </div>
+
+      {open && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black/50 z-50 p-4">
+          <div className="bg-white rounded-lg shadow-lg w-full max-w-md md:max-w-lg overflow-y-auto max-h-[90vh]">
+            <div className="sticky top-0 bg-white z-10 flex justify-between items-center p-4 border-b">
+              <h2 className="text-lg md:text-xl font-bold text-blue-600">{title}</h2>
+              <button 
+                onClick={() => setOpen(false)} 
+                className="text-gray-500 hover:text-gray-700 p-2"
+              >
+                ✕
+              </button>
+            </div>
+            
+            <div className="p-4">
+              <div className="relative w-full rounded-lg overflow-hidden mb-4" style={{ paddingBottom: "56.25%" }}>
+                <img 
+                  src={image} 
+                  alt={title} 
+                  className="absolute top-0 left-0 w-full h-full object-cover" 
+                />
+              </div>
+              
+              <div className="mb-6">
+                <h3 className="text-lg font-semibold mb-2">Course Details</h3>
+                <p className="text-gray-700 mb-4">{description}</p>
+                
+                <div className="bg-blue-50 p-4 rounded-lg mb-4">
+                  <h4 className="font-medium text-blue-700 mb-2">Course Information:</h4>
+                  <ul className="list-disc pl-5 text-gray-700">
+                    <li>Timing: {courseInfo.batchOne}</li>
+                    <li>Duration: {courseInfo.duration}</li>
+                    <li>Price: <span className="bg-red-500 text-white text-xs px-2 py-1 rounded-full">50% OFF</span> {courseInfo.price}</li>
+                  </ul>
+                </div>
+                
+                <div className="bg-purple-50 p-4 rounded-lg">
+                  <h4 className="font-medium text-purple-700 mb-2">Benefits:</h4>
+                  <ul className="list-disc pl-5 text-gray-700">
+                    <li>Worksheets after every class</li>
+                    <li>Certificate upon completion</li>
+                    <li>Develop critical thinking skills</li>
+                    <li>Build confidence and creativity</li>
+                  </ul>
+                </div>
+              </div>
+              
+              {/* Replacing batch timing buttons with class selection */}
+              <div className="border-t pt-4">
+                <h3 className="text-lg font-semibold mb-3">Age Requirement</h3>
+                <div className="space-y-3">
+                  {courseInfo.ageGroups.map((group, index) => (
+                    <button 
+                      key={index}
+                      className="w-full bg-blue-500 hover:bg-blue-600 text-white py-3 px-4 rounded-lg flex items-center justify-center"
+                      onClick={() => { 
+                        alert(`Selected: ${group}`); 
+                        setOpen(false); 
+                      }}
+                    >
+                      <Users className="w-5 h-5 mr-2" />
+                      {group}
+                    </button>
+                  ))}
+                </div>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+      )}
+    </section>
+  );
+}
+
+function getProfessionalCourseInfo(courseTitle) {
+  const courseTitleUpper = courseTitle.toUpperCase();
+
+  if (courseTitleUpper.includes("PROFESSIONAL COURSE 1: WEB DEVELOPMENT & DESIGNING")) {
+    return {
+      batchOne: "6:00 - 8:00 PM",
+      batchTwo: "-",
+      duration: "24 Days",
+      ageGroups: ["17-21 years"],
+      price: "₹10000"
+    };
+  } else if (courseTitleUpper.includes("PROFESSIONAL COURSE 2: PYTHON & GAME DEVELOPMENT")) {
+    return {
+      batchOne: "6:00 - 8:00 PM",
+      batchTwo: "-",
+      duration: "24 Days",
+      ageGroups: ["17-21 years"],
+      price: "₹10000"
+    };
+    
+  }
+
+  // Default values if no match
+  return {
+    batchOne: "6:00 PM - 8:00 PM",
+    batchTwo: "-",
+    duration: "30 Days",
+    ageGroups: ["17+ years"],
+    price: "₹10000"
+  };
 }
 
 function BenefitCard({ icon, title, description, color }) {
