@@ -430,6 +430,7 @@ function App() {
 
 function CourseCard({ icon, title, description, color, image }) {
   const [open, setOpen] = useState(false);
+  const courseTitleUpper = title.toUpperCase(); // Add this line at the component level
 
   // Helper function to get batch timings based on course title
   const getBatchTimings = (courseTitle) => {
@@ -448,9 +449,9 @@ function CourseCard({ icon, title, description, color, image }) {
       return {
         batchOne: "10:30 AM - 12:30 PM",
         batchTwo: "3:30 PM - 5:30 PM",
-        duration: courseTitleUpper.includes("17 - 21") ? "24 Days" : "12 Days",
-        ageGroups: ["12 - 16", "17 - 21"],
-        price: courseTitleUpper.includes("17 - 21") ? "₹5000" : "₹2000"
+        duration: courseTitleUpper.includes("9-12") ? "24 Days" : "12 Days",
+        ageGroups: ["Class 6-8", "Class 9-12"],
+        price: courseTitleUpper.includes("9-12") ? "₹5000" : "₹2000"
       };
     }
     else if (courseTitleUpper.includes("MATH MASTERY") || courseTitleUpper.includes("SPEED MATH")) {
@@ -458,7 +459,7 @@ function CourseCard({ icon, title, description, color, image }) {
         batchOne: "9:00 AM - 10:15 AM",
         batchTwo: "-",
         duration: "12 Days",
-        ageGroups: ["7 - 11", "12 - 15"],
+        ageGroups: ["Class 1-5", "Class 6-8"],
         price: "₹2000"
       };
     }
@@ -473,10 +474,10 @@ function CourseCard({ icon, title, description, color, image }) {
     }
     else if (courseTitleUpper.includes("ENGLISH FLUENCY") || courseTitleUpper.includes("PUBLIC SPEAKING")) {
       return {
-        batchOne: "10:30 AM - 12:30 PM",
-        batchTwo: "3:30 PM - 5:30 PM",
+        batchOne: "3:30 PM - 5:30 PM",
+        batchTwo: "-",
         duration: "15 Days",
-        ageGroups: ["7 - 14", "15 - 21"],
+        ageGroups: ["7-14 years", "15+ years"],
         price: "₹5000"
       };
     }
@@ -485,7 +486,25 @@ function CourseCard({ icon, title, description, color, image }) {
         batchOne: "6:00 PM - 8:00 PM",
         batchTwo: "-",
         duration: "24 Days",
-        ageGroups: ["7+ Years"],
+        ageGroups: ["11+ years"],
+        price: "₹5000"
+      };
+    }
+    else if (courseTitleUpper.includes("ENGLISH FLUENCY") || courseTitleUpper.includes("PUBLIC SPEAKING")) {
+      return {
+        batchOne: "3:30 PM - 5:30 PM",
+        batchTwo: "-",
+        duration: "15 Days",
+        ageGroups: ["7-14 years", "15+ years"],
+        price: "₹5000"
+      };
+    }
+    else if (courseTitleUpper.includes("SPOKEN HINDI")) {
+      return {
+        batchOne: "6:00 PM - 8:00 PM",
+        batchTwo: "-",
+        duration: "24 Days",
+        ageGroups: ["11+ years"],
         price: "₹5000"
       };
     }
@@ -549,9 +568,14 @@ function CourseCard({ icon, title, description, color, image }) {
                 <div className="bg-blue-50 p-4 rounded-lg mb-4">
                   <h4 className="font-medium text-blue-700 mb-2">Course Information:</h4>
                   <ul className="list-disc pl-5 text-gray-700">
-                    <li>Age Groups: {courseInfo.ageGroups.join(", ")}</li>
+                    <li>Timing: {courseTitleUpper.includes("WEB DEVELOPMENT") ? 
+                        "10:30 AM - 12:30 PM" : 
+                        courseTitleUpper.includes("MATH") ? 
+                        "9:00 AM - 10:15 AM" : 
+                        courseInfo.batchOne}
+                    </li>
                     <li>Duration: {courseInfo.duration}</li>
-                    <li>Price: {courseInfo.price}</li>
+                    <li>Price:  <span >50% Off </span> {courseInfo.price}</li>
                   </ul>
                 </div>
                 
@@ -566,28 +590,26 @@ function CourseCard({ icon, title, description, color, image }) {
                 </div>
               </div>
               
+              {/* Replacing batch timing buttons with class selection */}
               <div className="border-t pt-4">
-                <h3 className="text-lg font-semibold mb-3">Select a Time Slot</h3>
+                <h3 className="text-lg font-semibold mb-3">Select Your Class</h3>
                 <div className="space-y-3">
-                  <button 
-                    className="w-full bg-blue-500 hover:bg-blue-600 text-white py-3 px-4 rounded-lg flex items-center justify-center"
-                    onClick={() => { alert(`Batch 1 Selected (${courseInfo.batchOne})`); setOpen(false); }}
-                  >
-                    <Clock className="w-5 h-5 mr-2" />
-                    Batch 1: {courseInfo.batchOne}
-                  </button>
-                  
-                  {courseInfo.batchTwo !== "-" && (
+                  {courseInfo.ageGroups.map((group, index) => (
                     <button 
-                      className="w-full bg-purple-500 hover:bg-purple-600 text-white py-3 px-4 rounded-lg flex items-center justify-center"
-                      onClick={() => { alert(`Batch 2 Selected (${courseInfo.batchTwo})`); setOpen(false); }}
+                      key={index}
+                      className="w-full bg-blue-500 hover:bg-blue-600 text-white py-3 px-4 rounded-lg flex items-center justify-center"
+                      onClick={() => { 
+                        alert(`Selected: ${group}`); 
+                        setOpen(false); 
+                      }}
                     >
-                      <Clock className="w-5 h-5 mr-2" />
-                      Batch 2: {courseInfo.batchTwo}
+                      <GraduationCap className="w-5 h-5 mr-2" />
+                      {group}
                     </button>
-                  )}
+                  ))}
                 </div>
               </div>
+              
             </div>
           </div>
         </div>
