@@ -631,6 +631,13 @@ function CourseCard({ icon, title, description, color, image }) {
                             window.location.href = "https://study.mczealconsultancy.com/courses/Advanced-Speed-Math-for-Young-Minds---Class-6---8-67ebd2f2e02a1922b52ce483";
                           }
                         }
+                        else if (title.toUpperCase().includes("ENGLISH FLUENCY")) {
+                          if (group === "7-14 years") {
+                            window.location.href = "https://study.mczealconsultancy.com/courses/English-Fluency-Programme---Age-7-to-14-yrs--67ebd38c1148e14cd85234db";
+                          } else if (group === "15+ years") {
+                            window.location.href = "https://study.mczealconsultancy.com/courses/English-Fluency--Public-Speaking-Age-15-67ebd43b6777cb0a388972b7";
+                          }
+                        }
                         
                         else {
                           alert(`Selected: ${group}`); 
