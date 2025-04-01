@@ -644,7 +644,7 @@ function CourseCard({ icon, title, description, color, image }) {
                           }
                         
                         else {
-                          alert(`Selected: ${group}`); 
+                          alert(`Select a Proper Course or Category`); 
                         }
                       }}
                     >
