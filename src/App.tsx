@@ -113,22 +113,22 @@ function App() {
           </div>
           <div className="grid grid-cols-2 gap-4 animate-on-scroll">
             <img
-              src="https://images.unsplash.com/photo-1611784728558-6c7d9b409cdf?auto=format&fit=crop&w=400&q=80"
+              src="/summer-camp.jpg"
               alt="Kids Coding"
               className="rounded-lg transform hover:scale-105 transition-transform duration-300"
             />
             <img
-              src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=400&q=80"
+              src="/lang.jpg"
               alt="Kids Learning Math"
               className="rounded-lg transform hover:scale-105 transition-transform duration-300 mt-8"
             />
             <img
-              src="https://images.unsplash.com/photo-1588072432836-e10032774350?auto=format&fit=crop&w=400&q=80"
+              src="/software.jpg"
               alt="Kids Science"
               className="rounded-lg transform hover:scale-105 transition-transform duration-300"
             />
             <img
-              src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=400&q=80"
+              src="/ai.jpg   "
               alt="Kids Art"
               className="rounded-lg transform hover:scale-105 transition-transform duration-300 mt-8"
             />
