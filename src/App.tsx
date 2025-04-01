@@ -172,7 +172,7 @@ function App() {
           />
           <ProfessionalCourseCard
             icon={<Code2 />}
-            title="Professional Course 1: WEB DEVELOPMENT & DESIGNING"
+            title="Professional Course 1: FRONT-END WEB DEVELOPMENT"
             description="Advanced web development with industry-standard technologies and real-world projects"
             color="bg-gradient-to-br from-green-600 to-green-700"
             image="web1.jpg"
@@ -642,6 +642,7 @@ function CourseCard({ icon, title, description, color, image }) {
 
                             window.location.href = "https://study.mczealconsultancy.com/courses/Learn-Hindi--67ebd4db451a672414c85b1b";
                           }
+
                         
                         else {
                           alert(`Select a Proper Course or Category`); 
@@ -740,7 +741,14 @@ function ProfessionalCourseCard({ icon, title, description, color, image }) {
                       key={index}
                       className="w-full bg-blue-500 hover:bg-blue-600 text-white py-3 px-4 rounded-lg flex items-center justify-center"
                       onClick={() => { 
-                        alert(`Selected: ${group}`); 
+                        if (title.toUpperCase().includes("PYTHON & GAME DEVELOPMENT")) {
+                          window.location.href = "https://study.mczealconsultancy.com/courses/Advanced-Python---Game-Development-67ebd9b433856a6a7ca6e516";
+                        } 
+                        else if (title.toUpperCase().includes("FRONT-END")) {
+                          window.location.href = "https://study.mczealconsultancy.com/courses/Front---End-Development---67ebda97e708aa5598129ae2";
+                        }else {
+                          alert(`Select The Proper Course`); 
+                        }
                         setOpen(false); 
                       }}
                     >
@@ -785,8 +793,8 @@ function getProfessionalCourseInfo(courseTitle) {
   return {
     batchOne: "6:00 PM - 8:00 PM",
     batchTwo: "-",
-    duration: "30 Days",
-    ageGroups: ["17+ years"],
+    duration: "24 Days",
+    ageGroups: ["17-21 years"],
     price: "₹10000"
   };
 }
