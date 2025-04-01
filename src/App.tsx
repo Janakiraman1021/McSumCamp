@@ -459,7 +459,7 @@ function CourseCard({ icon, title, description, color, image }) {
         price: "₹2000"
       };
     } 
-    else if (courseTitleUpper.includes("WEB DEVELOPMENT & DESIGNING")) {
+    else if (courseTitleUpper.includes("WEB DEVELOPMENT")) {
       return {
         batchOne: "10:30 AM - 12:30 PM",
         batchTwo: "3:30 PM - 5:30 PM",
@@ -751,7 +751,7 @@ function getProfessionalCourseInfo(courseTitle) {
       ageGroups: ["17-21 years"],
       price: "₹10000"
     };
-    
+
   }
 
   // Default values if no match
