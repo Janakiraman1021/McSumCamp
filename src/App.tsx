@@ -143,25 +143,11 @@ function App() {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
           <CourseCard
-            icon={<Code2 />}
-            title="INNOVATIVE SCIENCE & CODING LAB"
-            description="Learn programming fundamentals and scientific concepts through hands-on projects"
-            color="bg-gradient-to-br from-blue-500 to-blue-600"
-            image="/innovatice-science-coding.jpg"
-          />
-          <CourseCard
             icon={<Monitor />}
             title="WEB DEVELOPMENT & DESIGNING "
             description="Create your own websites and web applications"
             color="bg-gradient-to-br from-blue-600 to-blue-700"
             image="web1.jpg"
-          />
-          <CourseCard
-            icon={<GraduationCap />}
-            title="PROMPT MASTER : AI & CANVA TOOLS"
-            description="Learn new languages through immersive experiences"
-            color="bg-gradient-to-br from-blue-500 to-blue-600"
-            image="/ai-canva.jpg"
           />
           <CourseCard
             icon={<Brain />}
