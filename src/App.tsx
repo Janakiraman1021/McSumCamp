@@ -397,7 +397,7 @@ function App() {
           <p className="text-purple-100 mb-8">Secure your spot in our summer camp program today!</p>
           <button
             className="bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white font-semibold py-4 px-8 rounded-lg transform transition-all hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-50 text-lg"
-            onClick={() => window.location.href = "https://study.mczealconsultancy.com/s/pages/summercamp-nungambakkam"}
+            onClick={() => window.location.href = "https://study.mczealconsultancy.com/s/store/courses/Summer%20Courses"}
           >
             Enroll Now
           </button>
@@ -609,8 +609,13 @@ function CourseCard({ icon, title, description, color, image }) {
               </div>
               
               {/* Replacing batch timing buttons with class selection */}
-              <div className="border-t pt-4">
-                <h3 className="text-lg font-semibold mb-3">Age Requirement</h3>
+{/* Replacing batch timing buttons with class selection */}
+<div className="border-t pt-4">
+                <h3 className="text-lg font-semibold mb-3">
+                  {title.toUpperCase().includes("WEB DEVELOPMENT") || title.toUpperCase().includes("SPEED MATH") 
+                    ? "Grade Category" 
+                    : "Age Requirement"}
+                </h3>
                 <div className="space-y-3">
                   {courseInfo.ageGroups.map((group, index) => (
                     <button 
