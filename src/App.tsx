@@ -378,7 +378,7 @@ function App() {
           <TestimonialCard
             name="Selva Prakash"
             image="/16.png"
-            text="Best coaching centre for english begineers"
+            text="Best coaching centre for english beginners"
             rating={5}
           />
           <TestimonialCard
@@ -610,7 +610,7 @@ function CourseCard({ icon, title, description, color, image }) {
               
               {/* Replacing batch timing buttons with class selection */}
 {/* Replacing batch timing buttons with class selection */}
-<div className="border-t pt-4">
+              <div className="border-t pt-4">
                 <h3 className="text-lg font-semibold mb-3">
                   {title.toUpperCase().includes("WEB DEVELOPMENT") || title.toUpperCase().includes("SPEED MATH") 
                     ? "Grade Category" 
