@@ -370,9 +370,9 @@ function App() {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
           <TestimonialCard
-            name="Aarif"
+            name="aarif"
             image="/14.png"
-            text="The classes are good and the teachers are interactive;over all amazing place Best coaching centre for english begineers"
+            text="The classes are good and the teachers are interactive;over all amazing place Best coaching centre for english beginners"
             rating={5}
           />
           <TestimonialCard
