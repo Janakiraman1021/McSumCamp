@@ -260,7 +260,7 @@ function App() {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
           <TrainerCard
-            image="/image.png"
+            image="/Dr.png"
             name="Prof Dinesh"
             specialty="English Language"
             bio="Professor Dinesh is an accomplished English language educator with over 15 years of experience teaching students at all levels. He specializes in advanced grammar, literature analysis, and effective communication skills."
@@ -276,7 +276,7 @@ function App() {
             }}
           />
           <TrainerCard
-            image="/image.png"
+            image="/Cruz.png"
             name="Prof Cruz"
             specialty="English Language"
             bio="Professor Cruz brings a unique global perspective to English language teaching, having taught in five different countries. His approach integrates cultural context with language learning, helping students develop both linguistic fluency and cultural understanding."
