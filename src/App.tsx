@@ -259,8 +259,8 @@ function App() {
           Meet Our Amazing Team
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-          <TrainerCard
-            image="/dinesh.png"
+          <TrainerCard2
+            image="/prof/dinesh.png"
             name="Prof Dinesh"
             specialty="English Language"
             bio="Professor Dinesh is an accomplished English language educator with over 15 years of experience teaching students at all levels. He specializes in advanced grammar, literature analysis, and effective communication skills."
@@ -271,8 +271,8 @@ function App() {
               "Mentor for over 200 undergraduate students"
             ]}
           />
-          <TrainerCard
-            image="/Cruzsir.png"
+          <TrainerCard2
+            image="/prof/Cruzsir.png"
             name="Prof Cruz"
             specialty="English Language"
             bio="Professor Cruz brings a unique global perspective to English language teaching, having taught in five different countries. His approach integrates cultural context with language learning, helping students develop both linguistic fluency and cultural understanding."
@@ -284,7 +284,8 @@ function App() {
             ]}
           />
           <TrainerCard
-            image="/jesu_raja.jpg"
+            frontImage="/prof/Jesu_raj.png"
+            backImage="/jesu_raja.jpg"
             name="Prof Jesu Raja"
             specialty="Math and AI"
             bio="Professor Jesu Raja bridges the gap between theoretical mathematics and practical AI applications. His research focuses on developing mathematical models that enhance machine learning algorithms, and he brings this cutting-edge knowledge into the classroom."
@@ -296,7 +297,8 @@ function App() {
             ]}
           />
           <TrainerCard
-            image="/Priscilla.png"
+            frontImage="/prof/priscilla.png"
+            backImage="/Priscilla.png"
             name="Priscilla"
             specialty="Math and AI"
             bio="Priscilla combines her strong foundation in mathematics with expertise in artificial intelligence to create innovative learning experiences. She specializes in making complex mathematical concepts accessible through AI-enhanced visualization and interactive learning tools."
@@ -308,7 +310,8 @@ function App() {
             ]}
           />
           <TrainerCard
-            image="/sai.JPG"
+            frontImage="/prof/Sai.png"
+            backImage="/sai.JPG"
             name="Sai Krisshna"
             specialty="Web Development"
             bio="Sai Krisshna is a full-stack web developer with expertise in modern frameworks and technologies. He believes in teaching through practical, project-based learning that prepares students for real-world development challenges."
@@ -320,7 +323,8 @@ function App() {
             ]}
           />
           <TrainerCard
-            image="/jani.jpg"
+            frontImage="/prof/janakiraman.png"
+            backImage="/jani.jpg"
             name="Janakiraman"
             specialty="Web Development"
             bio="Janakiraman specializes in modern web technologies with a focus on performance optimization and responsive design. His teaching methodology emphasizes hands-on coding practice and industry-standard development workflows."
@@ -807,7 +811,126 @@ function GalleryImage({ src }) {
 
 
 
-function TrainerCard({ image, name, specialty, bio, achievements }) {
+
+
+
+
+function TrainerCard(props) {
+  const { 
+    frontImage, 
+    backImage, 
+    name, 
+    specialty, 
+    bio, 
+    achievements = [] 
+  } = props;
+  
+  const [showPopup, setShowPopup] = useState(false);
+  
+  // Generate email from name
+  function generateEmail(name) {
+    return `${name.toLowerCase().replace(/\s+/g, '.')}@trainer.com`;
+  }
+
+  return (
+    <>
+      {/* Flip Card Container - Updated size to match TrainerCard2 */}
+      <div className="relative h-96 w-full max-w-sm mx-auto group perspective">
+        <div className="flip-card-inner relative w-full h-full">
+          {/* Front Side */}
+          <div className="flip-card-front absolute w-full h-full rounded-xl shadow-md overflow-hidden">
+            <img 
+              src={frontImage} 
+              alt={`${name}`} 
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70" />
+            <div className="absolute bottom-4 left-4 text-white">
+              <h3 className="text-xl font-bold animate-fade-in">{name}</h3>
+              <p className="text-sm animate-slide-up">{specialty}</p>
+            </div>
+          </div>
+          
+          {/* Back Side */}
+          <div className="flip-card-back absolute w-full h-full rounded-xl shadow-md overflow-hidden">
+            <img 
+              src={backImage || frontImage} 
+              alt={`${name}`} 
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-black bg-opacity-70" />
+            <div className="absolute inset-0 flex flex-col items-center justify-end p-4 text-white">
+              <button
+                onClick={() => setShowPopup(true)}
+                className="px-4 py-2 custom-gradient hover:opacity-90 rounded-md transition duration-300 animate-bounce-in"
+              >
+               {name}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      {/* Popup Modal */}
+      {showPopup && (
+        <div className="fixed inset-0 bg-black/30 backdrop-blur-md flex items-center justify-center z-50 animate-fade-in">
+          <div className="w-3/4 max-h-[75vh] bg-white/20 backdrop-blur-lg rounded-2xl p-8 overflow-y-auto relative animate-slide-up border border-white/20">
+            <button
+              onClick={() => setShowPopup(false)}
+              className="absolute right-6 top-6 text-white/80 hover:text-white transition-colors"
+            >
+              ✕
+            </button>
+            
+            <div className="flex flex-col md:flex-row items-center gap-8 mb-8">
+              <img 
+                src={frontImage} 
+                alt={`${name}`} 
+                className="w-32 h-32 md:w-48 md:h-48 rounded-full object-cover border-4 border-white/30"
+              />
+              <div className="text-center md:text-left">
+                <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">{name}</h2>
+                <p className="text-xl text-blue-300">{specialty}</p>
+              </div>
+            </div>
+            
+            <div className="mb-8 animate-on-scroll animate-in">
+              <h3 className="text-2xl font-semibold mb-4 text-white">About</h3>
+              <p className="text-lg text-white/90">{bio}</p>
+            </div>
+            
+            {achievements.length > 0 && (
+              <div className="mb-8 animate-on-scroll animate-in">
+                <h3 className="text-2xl font-semibold mb-4 text-white">Achievements</h3>
+                <ul className="space-y-3">
+                  {achievements.map((achievement, index) => (
+                    <li key={index} className="text-lg text-white/90 flex items-start">
+                      <span className="mr-3">•</span>
+                      {achievement}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+            
+            <div className="animate-on-scroll animate-in">
+              <h3 className="text-2xl font-semibold mb-4 text-white">Contact Information</h3>
+              <div className="space-y-2">
+                <p className="text-lg text-white/90">Email: {generateEmail(name)}</p>
+                <p className="text-lg text-white/90">Office Hours: Mon-Fri, 10:00 AM - 4:00 PM</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+    </>
+  );
+}
+
+
+
+
+function TrainerCard2({ image, name, specialty, bio, achievements }) {
   // No need for useState since we're using CSS hover
   
   return (
@@ -865,6 +988,8 @@ function TrainerCard({ image, name, specialty, bio, achievements }) {
     </div>
   );
 }
+
+
 
 function TestimonialCard({ name, image, text, rating }) {
   return (
