@@ -259,20 +259,22 @@ function App() {
           Meet Our Amazing Team
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-          <TrainerCard2
-            image="/prof/dinesh.png"
+          <TrainerCard
+            frontImage="/prof/dinesh.png"
+            backImage="/prof/dinesh.png"
             name="Prof Dinesh"
             specialty="English Language"
             bio="Professor Dinesh is an accomplished English language educator with over 15 years of experience teaching students at all levels. He specializes in advanced grammar, literature analysis, and effective communication skills."
             achievements={[
-              "Published author of 'Modern English Teaching Methods'",
+              "Published author of 'Modern English Teaching Methods",
               "Department Head of English Studies",
               "Certified TESOL instructor",
               "Mentor for over 200 undergraduate students"
             ]}
           />
-          <TrainerCard2
-            image="/prof/Cruzsir.png"
+          <TrainerCard
+            frontImage="/prof/Cruzsir.png"
+            backImage="/prof/Cruzsir.png"
             name="Prof Cruz"
             specialty="English Language"
             bio="Professor Cruz brings a unique global perspective to English language teaching, having taught in five different countries. His approach integrates cultural context with language learning, helping students develop both linguistic fluency and cultural understanding."
@@ -844,7 +846,7 @@ function TrainerCard(props) {
               alt={`${name}`} 
               className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-0" />
             <div className="absolute bottom-4 left-4 text-white">
               <h3 className="text-xl font-bold animate-fade-in">{name}</h3>
               <p className="text-sm animate-slide-up">{specialty}</p>
@@ -858,7 +860,7 @@ function TrainerCard(props) {
               alt={`${name}`} 
               className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-black bg-opacity-70" />
+            <div className="absolute inset-0 " />
             <div className="absolute inset-0 flex flex-col items-center justify-end p-4 text-white">
               <button
                 onClick={() => setShowPopup(true)}
@@ -912,14 +914,7 @@ function TrainerCard(props) {
                 </ul>
               </div>
             )}
-            
-            <div className="animate-on-scroll animate-in">
-              <h3 className="text-2xl font-semibold mb-4 text-white">Contact Information</h3>
-              <div className="space-y-2">
-                <p className="text-lg text-white/90">Email: {generateEmail(name)}</p>
-                <p className="text-lg text-white/90">Office Hours: Mon-Fri, 10:00 AM - 4:00 PM</p>
-              </div>
-            </div>
+
           </div>
         </div>
       )}
